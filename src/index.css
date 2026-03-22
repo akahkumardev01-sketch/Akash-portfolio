@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply m-0 bg-slate-950 text-slate-100 antialiased;
+  }
+
+  ::selection {
+    @apply bg-cyan-300/30 text-cyan-100;
   }
 
   #root {

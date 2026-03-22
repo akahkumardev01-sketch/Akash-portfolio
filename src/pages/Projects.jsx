@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 
 const projectData = [
@@ -45,17 +46,37 @@ const filters = [
   { label: "Full Stack", value: "fullstack" },
 ];
 
-function ProjectCard({ project, index }) {
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+};
+
+function ProjectCard({ project }) {
   return (
-    <article
-      className="group overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70 opacity-0 shadow-lg shadow-slate-950/30 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/60 hover:shadow-[0_16px_38px_rgba(34,211,238,0.2)] motion-safe:animate-[fadeUp_0.75s_ease-out_forwards]"
-      style={{ animationDelay: `${0.16 + index * 0.08}s` }}
+    <motion.article
+      variants={item}
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className="group overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70 shadow-lg shadow-slate-950/30 transition duration-300 hover:border-cyan-300/60 hover:shadow-[0_16px_38px_rgba(34,211,238,0.2)]"
     >
       <div className="relative aspect-[16/9] overflow-hidden">
-        <img
+        <motion.img
+          whileHover={{ scale: 1.06 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
           src={project.image}
           alt={`${project.title} preview`}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/15 to-transparent" />
@@ -71,12 +92,12 @@ function ProjectCard({ project, index }) {
         <p className="text-sm leading-relaxed text-slate-300 sm:text-base">{project.description}</p>
 
         <div className="flex flex-wrap gap-2">
-          {project.tech.map((item) => (
+          {project.tech.map((entry) => (
             <span
-              key={item}
+              key={entry}
               className="rounded-full border border-slate-700 bg-slate-800/70 px-3 py-1 text-xs font-medium text-slate-200"
             >
-              {item}
+              {entry}
             </span>
           ))}
         </div>
@@ -95,7 +116,7 @@ function ProjectCard({ project, index }) {
             href={project.liveUrl}
             target="_blank"
             rel="noreferrer"
-            className="rounded-lg bg-cyan-300 px-4 py-2 text-sm font-semibold text-slate-950 transition duration-300 hover:-translate-y-0.5 hover:bg-cyan-200"
+            className="rounded-lg bg-cyan-300 px-4 py-2 text-sm font-semibold text-slate-950 transition duration-300 hover:-translate-y-0.5 hover:bg-cyan-200 hover:shadow-cyan-400/35"
           >
             Live Demo
           </a>
@@ -103,13 +124,13 @@ function ProjectCard({ project, index }) {
             href={project.githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/70 hover:text-cyan-200"
+            className="rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-sm font-semibold text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/70 hover:text-cyan-200 hover:shadow-[0_8px_24px_rgba(34,211,238,0.15)]"
           >
             GitHub Repo
           </a>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -125,10 +146,15 @@ function Projects() {
   }, [activeFilter]);
 
   return (
-    <section className="relative space-y-8 pb-8 sm:space-y-10">
+    <motion.section
+      initial="hidden"
+      animate="show"
+      variants={container}
+      className="relative space-y-8 pb-8 sm:space-y-10"
+    >
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-56 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.15),transparent_65%)]" />
 
-      <header className="opacity-0 motion-safe:animate-[fadeUp_0.7s_ease-out_forwards]">
+      <motion.header variants={item}>
         <p className="inline-flex rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
           Portfolio Work
         </p>
@@ -139,9 +165,9 @@ function Projects() {
           Selected projects that reflect my full-stack development skills, UI focus,
           and practical problem-solving approach.
         </p>
-      </header>
+      </motion.header>
 
-      <div className="flex flex-wrap gap-3 opacity-0 motion-safe:animate-[fadeUp_0.75s_ease-out_0.08s_forwards]">
+      <motion.div variants={item} className="flex flex-wrap gap-3">
         {filters.map((filter) => {
           const isActive = activeFilter === filter.value;
 
@@ -161,28 +187,14 @@ function Projects() {
             </button>
           );
         })}
-      </div>
+      </motion.div>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {filteredProjects.map((project, index) => (
-          <ProjectCard key={project.title} project={project} index={index} />
+      <motion.div variants={container} className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {filteredProjects.map((project) => (
+          <ProjectCard key={project.title} project={project} />
         ))}
-      </div>
-
-      {/* Local keyframes keep animation setup scoped to this file. */}
-      <style>{`
-        @keyframes fadeUp {
-          0% {
-            opacity: 0;
-            transform: translateY(14px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 
