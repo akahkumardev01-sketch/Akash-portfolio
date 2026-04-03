@@ -9,8 +9,11 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
+  { label: "GitHub", href: "https://github.com/akahkumardev01-sketch" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/akash-kumar-9b041535a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  },
 ];
 
 function Footer() {

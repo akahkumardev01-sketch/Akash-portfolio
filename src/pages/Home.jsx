@@ -71,7 +71,7 @@ function Home() {
 
           <motion.div variants={item} className="mt-8 flex items-center gap-5 text-sm text-slate-400">
             <a
-              href="https://github.com"
+              href="https://github.com/akahkumardev01-sketch"
               target="_blank"
               rel="noreferrer"
               className="transition-colors duration-300 hover:text-cyan-300"
@@ -79,7 +79,7 @@ function Home() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/akash-kumar-9b041535a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
               target="_blank"
               rel="noreferrer"
               className="transition-colors duration-300 hover:text-cyan-300"

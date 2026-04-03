@@ -11,7 +11,7 @@ const projectData = [
     image:
       "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=80",
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/akahkumardev01-sketch",
     featured: true,
   },
   {
@@ -23,7 +23,7 @@ const projectData = [
     image:
       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/akahkumardev01-sketch",
     featured: false,
   },
   {
@@ -35,7 +35,7 @@ const projectData = [
     image:
       "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80",
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/akahkumardev01-sketch",
     featured: false,
   },
 ];

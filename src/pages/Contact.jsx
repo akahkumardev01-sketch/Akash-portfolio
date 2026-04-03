@@ -119,7 +119,7 @@ function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full rounded-xl border border-slate-700 bg-slate-950/80 px-4 py-3 text-slate-100 outline-none transition duration-300 placeholder:text-slate-500 focus:border-cyan-300/70 focus:ring-2 focus:ring-cyan-300/25"
-                placeholder="you@example.com"
+                placeholder="akashkumar.dev01@gmail.com"
                 aria-invalid={Boolean(errors.email)}
               />
               {errors.email && <p className="mt-2 text-xs text-rose-300">{errors.email}</p>}
@@ -157,11 +157,11 @@ function Contact() {
           <div className="mt-5 space-y-4 text-sm text-slate-300">
             <div>
               <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Email</p>
-              <p className="mt-1">akash@email.com</p>
+              <p className="mt-1">akashkumar.dev01@gmail.com</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Phone</p>
-              <p className="mt-1">+91 00000 00000</p>
+              <p className="mt-1">+91 9779039662</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Location</p>
@@ -173,7 +173,7 @@ function Contact() {
             <p className="text-xs uppercase tracking-[0.14em] text-slate-500">Social Links</p>
             <div className="mt-3 flex flex-wrap gap-3">
               <a
-                href="https://github.com"
+                href="https://github.com/akahkumardev01-sketch"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-2 text-sm font-medium text-slate-200 transition duration-300 hover:border-cyan-300/70 hover:text-cyan-200"
@@ -181,21 +181,14 @@ function Contact() {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/akash-kumar-9b041535a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-2 text-sm font-medium text-slate-200 transition duration-300 hover:border-cyan-300/70 hover:text-cyan-200"
               >
                 LinkedIn
               </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-2 text-sm font-medium text-slate-200 transition duration-300 hover:border-cyan-300/70 hover:text-cyan-200"
-              >
-                Twitter
-              </a>
+
             </div>
           </div>
         </aside>
