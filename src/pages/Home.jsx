@@ -99,7 +99,7 @@ function Home() {
             <motion.img
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80"
+              src="/WhatsApp%20Image%202026-04-03%20at%2010.42.49%20PM.jpeg"
               alt="Akash Kumar portrait"
               className="aspect-[4/5] w-full rounded-2xl object-cover"
               loading="lazy"
